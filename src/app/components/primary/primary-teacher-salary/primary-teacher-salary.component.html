@@ -1,0 +1,253 @@
+<div class="container-fluid mt-4">
+
+    <div class="card stm-card shadow-lg border-0">
+
+        <div class="card-header stm-header">
+
+            <div class="d-flex align-items-center">
+
+                <div class="header-line"></div>
+
+                <div class="ms-3">
+
+                    <h5 class="mb-0 fw-semibold">
+                        Primary Teacher Salary Processing
+                    </h5>
+
+                    <small>
+                        Monthly Salary Calculation
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-4">
+
+                <div class="col-md-2">
+
+                    <label class="form-label">
+                        Month
+                    </label>
+
+                    <select
+                        class="form-select stm-control"
+                        [(ngModel)]="selectedMonth">
+
+                        <option [value]="1">January</option>
+                        <option [value]="2">February</option>
+                        <option [value]="3">March</option>
+                        <option [value]="4">April</option>
+                        <option [value]="5">May</option>
+                        <option [value]="6">June</option>
+                        <option [value]="7">July</option>
+                        <option [value]="8">August</option>
+                        <option [value]="9">September</option>
+                        <option [value]="10">October</option>
+                        <option [value]="11">November</option>
+                        <option [value]="12">December</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <label class="form-label">
+                        Year
+                    </label>
+
+                    <input
+                        type="number"
+                        class="form-control stm-control"
+                        [(ngModel)]="selectedYear">
+
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+
+                    <button
+                        class="btn btn-success"
+                        (click)="loadTeachers()">
+
+                        Load
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table stm-table align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Teacher</th>
+
+                            <th>Working Days</th>
+
+                            <th>Present Days</th>
+
+                            <th>Absent Days</th>
+
+                            <th>LOP Days</th>
+                            <th>Extra Pay</th>
+
+                            <th>Fixed Salary</th>
+
+                            <th>Payable Salary</th>
+                            <th>Comments</th>
+
+                            <th>Status</th>
+
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let row of teachers">
+
+                            <td>
+
+                                <strong>
+
+                                    {{ row.teacher_name }}
+
+                                </strong>
+
+                            </td>
+
+                            <td>
+
+                                {{ row.working_days }}
+
+                            </td>
+
+                            <td>
+
+                                {{ row.present_days }}
+
+                            </td>
+
+                            <td>
+
+                                {{ row.absent_days }}
+
+                            </td>
+
+                            <td>
+
+                                <input
+                                    type="number"
+                                    min="0"
+                                    class="form-control stm-control"
+                                    [(ngModel)]="row.lossOfPayDays"
+                                    (input)="calculateSalary(row)"
+                                    [disabled]="row.payment_status === 'PAID'">
+
+                            </td>
+                            <td>
+
+                                <input
+                                    type="number"
+                                    min="0"
+                                    class="form-control stm-control"
+                                    [(ngModel)]="row.extraPay"
+                                    (input)="calculateSalary(row)"
+                                    [disabled]="row.payment_status === 'PAID'"
+                                    placeholder="0">
+
+                            </td>
+                            <td>
+
+                                ₹ {{ row.monthly_salary }}
+
+                            </td>
+
+                            <td>
+
+                                <span class="badge bg-success fs-6">
+
+                                    ₹ {{ row.payableSalary | number:'1.2-2' }}
+
+                                </span>
+
+                            </td>
+
+                            <td>
+                                <input
+                                    type="text"
+                                    class="form-control stm-control"
+                                    [(ngModel)]="row.comments"
+                                    [disabled]="row.payment_status === 'PAID'"
+                                    placeholder="Enter comments">
+                            </td>
+                            <td>
+
+                                <span
+                                    class="badge"
+                                    [ngClass]="
+                                    row.payment_status === 'PAID'
+                                    ? 'bg-success'
+                                    : 'bg-warning text-dark'
+                                ">
+
+                                    {{ row.payment_status || 'PENDING' }}
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    class="btn btn-success btn-sm"
+                                    [disabled]="row.payment_status === 'PAID'"
+                                    (click)="confirmProcessSalary(row)">
+
+                                    {{
+                                    row.payment_status === 'PAID'
+                                    ? 'Processed'
+                                    : 'Process Salary'
+                                    }}
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr *ngIf="teachers.length === 0">
+
+                            <td
+                                colspan="11"
+                                class="text-center py-4">
+
+                                No attendance data found for selected month.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

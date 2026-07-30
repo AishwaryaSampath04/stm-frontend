@@ -1,0 +1,162 @@
+<div class="container-fluid mt-4">
+
+    <div class="card stm-card shadow-lg border-0">
+
+        <div class="card-header stm-header">
+
+            <div class="d-flex align-items-center">
+
+                <div class="header-line"></div>
+
+                <div class="ms-3">
+
+                    <h5 class="mb-0 fw-semibold">
+                        Primary Teacher
+                    </h5>
+
+                    <small>
+                        Add New Teacher
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <!-- Row 1 -->
+
+            <div class="row g-4">
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Teacher Name
+                    </label>
+
+                    <input
+                        class="form-control stm-control"
+                        [(ngModel)]="teacher.teacherName"
+                        name="teacherName"
+                        required
+                        (input)="onNameInput($event)">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Mobile No
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control stm-control"
+                        [(ngModel)]="teacher.mobileNo"
+                        name="mobileNo"
+                        maxlength="10"
+                        pattern="[0-9]{10}"
+                        required
+                         (input)="onMobileInput($event)">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Subject
+                    </label>
+
+                    <select
+                        class="form-select stm-control"
+                        [(ngModel)]="teacher.subjectId"
+                        name="subjectId"
+                        required>
+
+                        <option value="">
+                            Select Subject
+                        </option>
+
+                        <option
+                            *ngFor="let subject of subjects"
+                            [value]="subject.subject_id">
+
+                            {{ subject.subject_name }}
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <!-- Row 2 -->
+
+            <div class="row g-4 mt-1">
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                       (₹) Monthly Salary
+                    </label>
+
+                    <input
+                        type="number"
+                        class="form-control stm-control"
+                        [(ngModel)]="teacher.monthlySalary"
+                        name="monthlySalary"
+                        min="1"
+                        required>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        Joining Date
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control stm-control"
+                        [(ngModel)]="teacher.joiningDate"
+                        name="joiningDate"
+                        required>
+
+                </div>
+
+                <div class="col-md-4">
+                </div>
+
+            </div>
+
+            <div class="text-center mt-5">
+
+                <button
+                    type="button"
+                    class="btn stm-save-btn px-5"
+                    (click)="confirmAndSaveTeacher()"
+                    [disabled]="
+                        !teacher.teacherName ||
+                        !teacher.mobileNo ||
+                        teacher.mobileNo.length !== 10 ||
+                        !teacher.subjectId ||
+                        !teacher.monthlySalary ||
+                        teacher.monthlySalary <= 0 ||
+                        !teacher.joiningDate
+                    ">
+
+                    Save Teacher
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

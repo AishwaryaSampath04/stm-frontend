@@ -1,0 +1,177 @@
+.stm-card {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.stm-header {
+    background: linear-gradient(
+        90deg,
+        #0f5132 0%,
+        #146c43 100%
+    );
+    color: white;
+    padding: 14px 22px;
+    border-bottom: 4px solid #ffc107;
+}
+
+.header-line {
+    width: 5px;
+    height: 36px;
+    background: #ffc107;
+    border-radius: 10px;
+}
+
+.stm-header h5 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.stm-header small {
+    color: #d8f3dc;
+    font-size: 12px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #146c43;
+    margin-bottom: 8px;
+}
+
+.stm-control {
+    height: 42px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    font-size: 14px;
+}
+
+.stm-control:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.15rem rgba(25, 135, 84, 0.25);
+}
+
+.stm-table {
+    margin-bottom: 0;
+}
+
+.stm-table thead {
+    background: #f8f9fa;
+}
+
+.stm-table thead th {
+    color: #146c43;
+    font-weight: 700;
+    border-bottom: 2px solid #dee2e6;
+    padding: 12px;
+    white-space: nowrap;
+}
+
+.stm-table tbody td {
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.stm-table tbody tr:hover {
+    background: #f8fff9;
+}
+
+/* Absent Days */
+
+.salary-badge {
+    background: #198754;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* Status */
+
+.status-paid,
+.status-pending {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.status-paid {
+    background: #198754;
+    color: white;
+}
+
+.status-pending {
+    background: #ffc107;
+    color: #000;
+}
+
+/* Buttons */
+
+.btn-process {
+    background: #198754;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 6px;
+    min-width: 90px;
+    height: 34px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-process:hover {
+    background: #157347;
+}
+
+.btn-process:disabled {
+    background: #d6d6d6;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.btn-load {
+    background: #ffc107;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    min-width: 90px;
+    height: 38px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-load:hover {
+    background: #ffca2c;
+}
+
+.table-responsive {
+    border-radius: 12px;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+
+    .btn-load,
+    .btn-process {
+        width: 100%;
+    }
+
+    .stm-table {
+        min-width: 850px;
+    }
+}

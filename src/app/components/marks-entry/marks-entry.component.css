@@ -1,0 +1,241 @@
+/* ============================
+   STM Compact Theme
+============================ */
+
+.container-fluid{
+    max-width:1600px;
+}
+
+/* Cards */
+
+.stm-card{
+    border-radius:14px;
+    overflow:hidden;
+    background:#fff;
+    margin-bottom:18px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+/* Header */
+
+.stm-header{
+
+    background:linear-gradient(
+        90deg,
+        #0f5132,
+        #146c43
+    );
+
+    color:#fff;
+
+    padding:8px 16px;
+
+    border-bottom:3px solid #ffc107;
+
+}
+
+.header-line{
+
+    width:4px;
+
+    height:28px;
+
+    background:#ffc107;
+
+    border-radius:3px;
+
+}
+
+.stm-header h5{
+
+    margin:0;
+
+    font-size:16px;
+
+    font-weight:600;
+
+}
+
+.stm-header small{
+
+    color:#d8f3dc;
+
+    font-size:11px;
+
+}
+
+/* Card Body */
+
+.card-body{
+
+    padding:18px;
+
+}
+
+/* Labels */
+
+.form-label{
+
+    color:#146c43;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:5px;
+
+}
+
+/* Inputs */
+
+.stm-control{
+
+    height:40px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    border:1px solid #ced4da;
+
+}
+
+.stm-control:focus{
+
+    border-color:#198754;
+
+    box-shadow:0 0 0 .15rem rgba(25,135,84,.2);
+
+}
+
+/* Buttons */
+
+.stm-save-btn{
+
+    background:#ffc107;
+
+    color:#000;
+
+    border:none;
+
+    height:40px;
+
+    min-width:170px;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.stm-save-btn:hover{
+
+    background:#ffca2c;
+
+}
+
+/* Tables */
+
+.stm-table{
+
+    margin-bottom:0;
+
+}
+
+.stm-table thead{
+
+    background:#f8f9fa;
+
+}
+
+.stm-table thead th{
+
+    color:#146c43;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    text-align:center;
+
+    padding:10px;
+
+    border-bottom:2px solid #198754;
+
+    white-space:nowrap;
+
+}
+
+.stm-table tbody td{
+
+    padding:8px;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+    font-size:13px;
+
+}
+
+.stm-table tbody tr:hover{
+
+    background:#f8fff9;
+
+}
+
+/* Marks Box */
+
+.marks-box{
+
+    width:60px;
+
+    height:32px;
+
+    margin:auto;
+
+    text-align:center;
+
+    border-radius:6px;
+
+    font-size:13px;
+
+}
+
+/* Subject Config */
+
+.subject-box{
+
+    width:70px;
+
+    height:34px;
+
+    text-align:center;
+
+    margin:auto;
+
+}
+
+/* Result */
+
+.badge{
+
+    font-size:11px;
+
+    padding:6px 10px;
+
+}
+
+/* Footer Buttons */
+
+.footer-buttons{
+
+    text-align:right;
+
+    margin-top:15px;
+
+}

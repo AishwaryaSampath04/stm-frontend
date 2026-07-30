@@ -1,0 +1,321 @@
+<div class="container-fluid mt-3">
+
+    <div class="card stm-card shadow-lg border-0">
+
+        <!-- HEADER -->
+
+        <div class="card-header stm-header">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <div class="d-flex align-items-center">
+
+                    <div class="header-line"></div>
+
+                    <div class="ms-3">
+
+                        <h5 class="mb-0 fw-semibold">
+                            Examination Marks Entry
+                        </h5>
+
+                        <small>
+                            Academic Year :
+                            {{ academicYear?.academic_year_name }}
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex gap-2">
+
+                    <button
+                        *ngIf="!isFinal"
+                        class="btn stm-save-btn"
+                        (click)="saveMarks()">
+
+                        Save Draft
+
+                    </button>
+
+                    <button
+    class="btn btn-primary stm-save-btn"
+    (click)="generateClassMarksPdf()">
+
+    Generate PDF
+
+</button>
+
+                    <button
+                        *ngIf="!isFinal"
+                        class="btn btn-success stm-save-btn"
+                        (click)="finalSubmit()">
+
+                        Final Submit
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <!-- EXAM DETAILS -->
+
+            <div class="row g-2 align-items-end mb-3">
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+
+                        Examination
+
+                    </label>
+
+                    <select
+                        class="form-select stm-control"
+                        [(ngModel)]="selectedExamId">
+
+                        <option [ngValue]="null">
+                            Select Examination
+                        </option>
+
+                        <option
+                            *ngFor="let exam of exams"
+                            [value]="exam.exam_id">
+
+                            {{ exam.exam_name }}
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+
+                        Grade
+
+                    </label>
+
+                    <select
+                        class="form-select stm-control"
+                        [(ngModel)]="selectedGradeId">
+
+                        <option [ngValue]="null">
+                            Select Grade
+                        </option>
+
+                        <option
+                            *ngFor="let grade of grades"
+                            [value]="grade.grade_id">
+
+                            {{ grade.grade_name }}
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <button
+                        class="btn stm-save-btn w-100"
+                        (click)="loadStudents()">
+
+                        Load
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- SUBJECT CONFIGURATION -->
+
+            <div
+                class="table-responsive mb-3"
+                *ngIf="subjects.length">
+
+                <table class="table table-bordered stm-table text-center">
+
+                    <thead>
+
+                        <tr>
+
+                            <th style="width:150px">
+
+                                Marks
+
+                            </th>
+
+                            <th
+                                *ngFor="let subject of subjects">
+
+                                {{ subject.subject_name }}
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td class="fw-bold">
+
+                                Maximum
+
+                            </td>
+
+                            <td
+                                *ngFor="let subject of subjects">
+
+                                <input
+                                    type="number"
+                                    class="form-control subject-box"
+                                    [(ngModel)]="subject.maximumMarks"
+                                    [disabled]="isFinal">
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td class="fw-bold">
+
+                                Passing
+
+                            </td>
+
+                            <td
+                                *ngFor="let subject of subjects">
+
+                                <input
+                                    type="number"
+                                    class="form-control subject-box"
+                                    [(ngModel)]="subject.passingMarks"
+                                    [disabled]="isFinal">
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- STUDENT MARKS -->
+
+            <div
+                class="student-table-container"
+                *ngIf="students.length">
+
+                <table class="table stm-table mb-0">
+
+                    <thead>
+
+                        <tr>
+
+                            <th class="sticky-col">
+
+                                Admission No
+
+                            </th>
+
+                            <th class="sticky-name">
+
+                                Student Name
+
+                            </th>
+
+                            <th
+                                *ngFor="let subject of subjects">
+
+                                {{ subject.subject_name }}
+
+                            </th>
+
+                            <th>
+
+                                Total
+
+                            </th>
+
+                            <th>
+
+                                Result
+
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr
+                            *ngFor="let student of students">
+
+                            <td class="sticky-col">
+
+                                {{ student.admission_no }}
+
+                            </td>
+
+                            <td class="sticky-name">
+
+                                {{ student.student_name }}
+
+                            </td>
+
+                            <td
+                                *ngFor="let subject of subjects">
+
+                                <input
+                                    type="number"
+                                    class="form-control marks-box"
+                                    [(ngModel)]="student.marks[subject.subject_id]"
+                                    [disabled]="isFinal">
+                            </td>
+
+                            <td>
+                                <strong>
+                                    {{ calculateTotal(student) }}
+                                </strong>
+                            </td>
+
+                            <td>
+
+                                <span class="badge bg-success">
+
+                                    PASS
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

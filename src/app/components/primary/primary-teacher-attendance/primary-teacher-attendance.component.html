@@ -1,0 +1,223 @@
+<div class="container-fluid mt-4">
+
+    <div class="card stm-card shadow-lg border-0">
+
+        <div class="card-header stm-header">
+
+            <div class="d-flex align-items-center">
+
+                <div class="header-line"></div>
+
+                <div class="ms-3">
+
+                    <h5 class="mb-0 fw-semibold">
+                        Primary Teacher Attendance
+                    </h5>
+
+                    <small>
+                        Monthly Attendance Entry
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-4">
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Month
+                    </label>
+
+                    <select
+                        class="form-select stm-control"
+                        [(ngModel)]="selectedMonth">
+
+                        <option [value]="1">January</option>
+                        <option [value]="2">February</option>
+                        <option [value]="3">March</option>
+                        <option [value]="4">April</option>
+                        <option [value]="5">May</option>
+                        <option [value]="6">June</option>
+                        <option [value]="7">July</option>
+                        <option [value]="8">August</option>
+                        <option [value]="9">September</option>
+                        <option [value]="10">October</option>
+                        <option [value]="11">November</option>
+                        <option [value]="12">December</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <label class="form-label">
+                        Year
+                    </label>
+
+                    <input
+                        type="number"
+                        class="form-control stm-control"
+                        [(ngModel)]="selectedYear">
+
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+
+                    <button
+                        type="button"
+                        class="btn-load"
+                        (click)="loadTeachers()">
+
+                        Load
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="table-responsive">
+
+                <table class="table stm-table align-middle">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Teacher Name</th>
+
+                            <th width="170">
+                                Working Days
+                            </th>
+
+                            <th width="170">
+                                Present Days
+                            </th>
+
+                            <th width="150">
+                                Absent Days
+                            </th>
+
+                            <th width="140">
+                                Status
+                            </th>
+
+                            <th width="160">
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let row of teachers">
+
+                            <td>
+
+                                <strong>
+                                    {{ row.teacher_name }}
+                                </strong>
+
+                            </td>
+
+                            <td>
+
+                                <input
+                                    type="number"
+                                    min="0"
+                                    class="form-control stm-control"
+                                    [(ngModel)]="row.working_days"
+                                    [disabled]="row.attendance_status === 'SAVED'"
+                                    (input)="calculateAbsent(row)">
+
+                            </td>
+
+                            <td>
+
+                                <input
+                                    type="number"
+                                    min="0"
+                                    class="form-control stm-control"
+                                    [(ngModel)]="row.present_days"
+                                    [disabled]="row.attendance_status === 'SAVED'"
+                                    (input)="calculateAbsent(row)">
+
+                            </td>
+
+                            <td>
+
+                                <span class="salary-badge">
+
+                                    {{ row.absent_days }}
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <span
+                                    [ngClass]="
+                                        row.attendance_status === 'SAVED'
+                                        ? 'status-paid'
+                                        : 'status-pending'
+                                    ">
+
+                                    {{ row.attendance_status || 'PENDING' }}
+
+                                </span>
+
+                            </td>
+
+                            <td>
+
+                                <button
+                                    type="button"
+                                    class="btn-process"
+                                    [disabled]="row.attendance_status === 'SAVED'"
+                                    (click)="confirmSaveAttendance(row)">
+
+                                    {{
+                                        row.attendance_status === 'SAVED'
+                                        ? 'Saved'
+                                        : 'Save'
+                                    }}
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                        <tr *ngIf="teachers.length === 0">
+
+                            <td
+                                colspan="6"
+                                class="text-center py-4 text-muted">
+
+                                No teachers found for the selected month.
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

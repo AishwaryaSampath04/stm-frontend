@@ -1,0 +1,386 @@
+.file-box {
+    display: flex;
+    align-items: center;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    max-width: 400px;   /* limit the box width */
+    margin-left: auto;  /* center horizontally */
+    margin-right: auto; /* center horizontally */
+}
+
+.file-box label {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    white-space: nowrap; /* prevent label text from wrapping */
+}
+
+.file-name {
+    flex-grow: 1;
+    font-size: 14px;
+    color: #555;
+    overflow: hidden;   /* hide overflow text */
+    text-overflow: ellipsis; /* show ... if too long */
+    white-space: nowrap; /* keep on single line */
+}
+
+
+/* Common overlay for popups */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Ensure it's above other UI elements */
+}
+
+/* Popup box */
+.popup-box {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  animation: fadeInScale 0.25s ease-out;
+}
+
+/* Headings inside popup */
+.popup-box h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Message text */
+.popup-box p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.popup-box button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #0275d8;
+  color: white;
+  transition: background 0.2s;
+}
+
+.popup-box button:hover {
+  background-color: #025aa5;
+}
+
+/* Animation for popup appearance */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Optional: differentiate success and error */
+.popup-box.success h3 {
+  color: #28a745; /* green */
+}
+
+.popup-box.error h3 {
+  color: #f13d37; /* red */
+}
+/* ---------- Main Upload Container ---------- */
+.upload-container {
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- Title ---------- */
+.upload-container h2 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2b2b2b;
+}
+
+/* ---------- File Box ---------- */
+.file-box {
+  border: 2px dashed #bdbdbd;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  transition: border 0.3s ease;
+}
+
+.file-box:hover {
+  border-color: #3f51b5;
+}
+
+/* Hide default file input */
+input[type="file"] {
+  display: none;
+}
+
+/* ---------- Choose File Button ---------- */
+.file-box label {
+  background: #3f51b5;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.3s ease;
+}
+
+.file-box label:hover {
+  background: #303f9f;
+}
+
+/* ---------- File Name ---------- */
+.file-name {
+  font-size: 14px;
+  flex-grow: 1;
+  color: #555555;
+  font-style: italic;
+}
+
+/* ---------- Upload Button ---------- */
+.upload-btn {
+  width: 100%;
+  margin-top: 15px;
+  background: #4caf50;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.upload-btn:hover {
+  background: #43a047;
+}
+
+/* Disable button during upload */
+.upload-btn:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* ---------- PROGRESS BAR ---------- */
+.progress-container {
+  margin-top: 15px;
+}
+
+.mat-progress-bar {
+  height: 8px !important;
+  border-radius: 5px;
+}
+
+/* ---------- Material Dialog Styling ---------- */
+.mat-dialog-container {
+  border-radius: 12px !important;
+  padding: 0 !important;
+}
+
+/* Title */
+.mat-dialog-title {
+  padding: 16px 24px 8px 24px;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+/* Content */
+.mat-dialog-content {
+  padding: 16px 24px;
+  font-size: 15px;
+  color: #424242;
+}
+
+/* Dialog Actions */
+.mat-dialog-actions {
+  padding: 10px 24px 20px 24px;
+  border-top: 1px solid #eee;
+  justify-content: flex-end;
+}
+
+/* OK button styling */
+.mat-dialog-actions button {
+  background: #3f51b5;
+  color: white;
+}
+
+.mat-dialog-actions button:hover {
+  background: #303f9f;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .upload-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .file-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .file-box label {
+    margin-bottom: 10px;
+  }
+
+  .file-name {
+    margin-bottom: 8px;
+  }
+}
+/* Overlay background */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* make sure it is on top */
+}
+
+/* Popup box */
+.popup-box {
+  background-color: #fff; /* Material white card */
+  padding: 24px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),
+              0px 6px 10px 0px rgba(0,0,0,0.14),
+              0px 1px 18px 0px rgba(0,0,0,0.12); /* Material elevation */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: popupFadeIn 0.2s ease-in-out;
+}
+
+/* Popup title */
+.popup-box h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #3f51b5; /* Material primary color */
+}
+
+/* Popup message */
+.popup-box p {
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 16px;
+  color: rgba(0,0,0,0.87);
+}
+
+/* Button */
+.popup-box .btn {
+  min-width: 80px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Primary button style (like mat-raised-button) */
+.popup-box .btn-primary {
+  background-color: #3f51b5; /* Material primary */
+  color: #fff;
+}
+
+.popup-box .btn-primary:hover {
+  background-color: #303f9f; /* Darker shade on hover */
+}
+
+/* Fade-in animation */
+@keyframes popupFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+.logout {
+  position: fixed;   /* Fix it relative to viewport */
+  bottom : 70px;         /* Distance from top */
+  right: 10px;        /* Distance from left */
+  z-index: 1000;     /* Make sure it appears above other elements */
+}
+
+.logout .btn {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+/* Previous Page button container (if alone) */
+.previous-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* left-aligned */
+  margin: 20px 0;
+}
+
+/* Previous button style */
+.previous-page-container .btn-primary {
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* space between icon and text */
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.previous-page-container .btn-primary:hover {
+  background-color: #0056b3; /* darker blue on hover */
+}
+
+/* Arrow icon inside button */
+.previous-page-container .btn-primary mat-icon {
+  font-size: 20px;
+  vertical-align: center;
+  color: #fff; /* icon matches button text */
+}
+

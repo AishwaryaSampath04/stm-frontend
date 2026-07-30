@@ -1,0 +1,228 @@
+<div class="login-page">
+
+  <div class="login-wrapper">
+
+    <!-- LEFT SECTION -->
+    <div class="hero-section">
+
+ <div class="logo-header">
+
+  <div class="stm-logo">
+    <img
+      src="assets/img/stm_logo_img.jpg"
+      alt="STM Logo"
+      class="header-logo">
+  </div>
+
+
+</div>
+
+      <h1>STM </h1>
+
+      <h3>Building Bright Futures Since 2000</h3>
+
+      <p>
+        Providing quality education with experienced faculty,
+        
+        individual attention and excellent academic results.
+      </p>
+
+ <button
+    class="btn btn-success btn-lg home-btn"
+    routerLink="/home">
+    <i class="fas fa-home me-10"></i>
+   Go Back to Home Page
+ </button>
+      <div class="achievement-container">
+
+        <div class="achievement-card">
+
+          <div class="achievement-number">
+            100%
+          </div>
+
+          <div class="achievement-text">
+            Board Exam Results
+          </div>
+
+        </div>
+
+        <div class="achievement-card">
+
+          <div class="achievement-number">
+            25+
+          </div>
+
+          <div class="achievement-text">
+            Years of Excellence
+          </div>
+
+        </div>
+
+        <div class="achievement-card">
+
+          <div class="achievement-number">
+            Expert
+          </div>
+
+          <div class="achievement-text">
+            Teaching Faculty
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- LOGIN CARD -->
+    <div class="login-card">
+      <div>
+
+        <div>
+
+          <div class="login-header">
+
+            <div class="header-title">
+
+              <img
+                src="assets/img/stm_logo_img.jpg"
+                alt="STM Logo"
+                class="header-logo">
+
+              <div class="header-text">
+
+                <h2>Welcome Back</h2>
+
+                <p>Academic Management Portal</p>
+
+              </div>
+
+            </div>
+
+          </div>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <!-- Username -->
+            <div class="custom-field">
+              <mat-icon>person</mat-icon>
+
+              <input
+                type="text"
+                placeholder="Username"
+                formControlName="username">
+
+            </div>
+
+            <small
+              class="error"
+              *ngIf="loginForm.get('username')?.touched &&
+                   loginForm.get('username')?.hasError('required')">
+
+              Username is required
+
+            </small>
+
+            <!-- Password -->
+
+            <div class="custom-field">
+
+              <mat-icon>lock</mat-icon>
+
+              <input
+                [type]="hide ? 'password' : 'text'"
+                placeholder="Password"
+                formControlName="password">
+
+              <mat-icon
+                class="eye"
+                (click)="hide=!hide">
+
+                {{hide ? 'visibility_off' : 'visibility'}}
+
+              </mat-icon>
+
+            </div>
+
+            <small
+              class="error"
+              *ngIf="loginForm.get('password')?.touched &&
+                   loginForm.get('password')?.hasError('required')">
+
+              Password is required
+
+            </small>
+
+            <!-- Captcha -->
+
+            <div class="captcha-wrapper">
+
+              <div class="captcha-distorted">
+
+                <span
+                  *ngFor="let c of captchaArray; let i=index"
+                  [style.transform]="randomTransforms[i]"
+                  [style.color]="randomColors[i]">
+
+                  {{c}}
+
+                </span>
+                <button
+                  mat-icon-button
+                  type="button"
+                  (click)="generateCaptcha()">
+
+                  <mat-icon>refresh</mat-icon>
+
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Captcha Input -->
+
+            <div class="custom-field">
+
+              <mat-icon>verified_user</mat-icon>
+
+              <input
+                type="text"
+                placeholder="Captcha"
+                formControlName="captcha">
+
+            </div>
+
+            <small
+              class="error"
+              *ngIf="loginForm.get('captcha')?.touched &&
+                   loginForm.get('captcha')?.hasError('required')">
+
+              Captcha is required
+
+            </small>
+
+            <button
+              class="login-btn"
+              type="submit">
+
+              LOGIN
+
+            </button>
+
+            <div class="register-link">
+
+             <!--  <span>New to STM?</span> -->
+
+             <!--  <a routerLink="/register">
+                Create Account
+              </a> -->
+
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+   

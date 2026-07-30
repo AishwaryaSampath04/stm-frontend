@@ -1,0 +1,216 @@
+<div class="container-fluid mt-4">
+
+  <div class="card stm-card shadow-lg border-0">
+
+    <div class="card-header stm-header">
+
+      <div class="d-flex align-items-center">
+
+        <div class="header-line"></div>
+
+        <div class="ms-3">
+
+          <h5 class="mb-0 fw-semibold">
+             Primary Fee Collection
+          </h5>
+
+          <small>
+           Collect Monthly Fees
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+     <div class="card-body">
+
+    <!-- Row 1 -->
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Grade
+            </label>
+
+            <select
+                class="form-select stm-control"
+                [(ngModel)]="selectedGrade"
+                name="selectedGrade"
+                (change)="onGradeChange()"
+                required>
+
+                <option value="">
+                    Select Grade
+                </option>
+
+                <option
+                    *ngFor="let grade of grades"
+                    [value]="grade.grade_id">
+
+                    {{ grade.grade_name }}
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Student
+            </label>
+
+            <select
+                class="form-select stm-control"
+                [(ngModel)]="payment.studentId"
+                name="studentId"
+                [disabled]="!selectedGrade"
+                required>
+
+                <option value="">
+                    Select Student
+                </option>
+
+                <option
+                    *ngFor="let s of students"
+                    [value]="s.student_id">
+
+                    {{ s.admission_no }} - {{ s.student_name }}
+
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Receipt No
+            </label>
+
+            <input
+                type="text"
+                class="form-control stm-control"
+                [(ngModel)]="payment.receiptNo"
+                name="receiptNo"
+                required>
+
+        </div>
+
+    </div>
+
+    <!-- Row 2 -->
+
+    <div class="row g-4 mt-1">
+
+        <div class="col-md-4">
+
+        <label class="form-label">
+            Amount Paid (₹)
+        </label>
+
+        <input
+            type="number"
+            class="form-control stm-control"
+            [(ngModel)]="payment.amount"
+            (ngModelChange)="updateAmountInWords()"
+            name="amount"
+            min="1"
+            required>
+
+    </div>
+
+
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Payment Mode
+            </label>
+
+            <select
+                class="form-select stm-control"
+                [(ngModel)]="payment.paymentMode"
+                name="paymentMode"
+                required>
+
+                <option value="Cash">
+                    Cash
+                </option>
+
+                <option value="UPI">
+                    UPI
+                </option>
+
+                <option value="Bank">
+                    Bank
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <label class="form-label">
+                Remarks
+            </label>
+
+            <input
+                type="text"
+                class="form-control stm-control"
+                [(ngModel)]="payment.remarks"
+                name="remarks"
+                required>
+
+        </div>
+
+          <div class="col-md-3">
+
+            <label class="form-label">
+              Amount in Words
+            </label>
+
+            <input
+              type="text"
+              class="form-control stm-control"
+              [value]="amountInWords"
+              disabled>
+
+          </div>
+    </div>
+
+    <!-- Save Button -->
+
+    <div class="text-center mt-5">
+
+        <button
+            type="button"
+            class="btn stm-save-btn px-5"
+            (click)="confirmAndSavePayment()"
+            [disabled]="
+                !selectedGrade ||
+                !payment.studentId ||
+                !payment.receiptNo ||
+                !payment.amount ||
+                payment.amount <= 0 ||
+                !payment.paymentMode ||
+                !payment.remarks
+            ">
+
+            Save Payment
+
+        </button>
+
+    </div>
+
+</div>
+
+    </div>
+
+</div>

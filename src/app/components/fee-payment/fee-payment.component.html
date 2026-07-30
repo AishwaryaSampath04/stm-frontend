@@ -1,0 +1,221 @@
+<form
+  #feePaymentForm="ngForm"
+  (ngSubmit)="confirmSaveFeePayment()">
+
+  <div class="container-fluid mt-4">
+
+    <div class="card stm-card shadow-lg border-0">
+
+      <div class="card-header stm-header">
+
+        <div class="d-flex align-items-center">
+
+          <div class="header-line"></div>
+
+          <div class="ms-3">
+
+            <h5 class="mb-0 fw-semibold">
+              High School Fee Collection
+            </h5>
+
+            <small>
+              Record Fee collection
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="card-body">
+
+        <!-- ROW 1 -->
+
+        <div class="row g-4">
+
+          <div class="col-md-3">
+
+            <label class="form-label">
+              Grade
+            </label>
+
+            <select
+              class="form-select stm-control"
+              [(ngModel)]="selectedGrade"
+              name="selectedGrade"
+              required
+              (change)="onGradeChange()">
+
+              <option value>
+                Select Grade
+              </option>
+
+              <option
+                *ngFor="let g of grades"
+                [value]="g.grade_id">
+
+                {{ g.grade_name }}
+
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="col-md-3">
+
+            <label class="form-label">
+              Student
+            </label>
+
+            <select
+              class="form-select stm-control"
+              [(ngModel)]="payment.studentId"
+              name="studentId"
+              required>
+
+              <option value>
+                Select Student
+              </option>
+
+              <option
+                *ngFor="let s of students"
+                [value]="s.student_id">
+
+                {{ s.student_name }}
+
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="col-md-3">
+
+            <label class="form-label">
+              Receipt No
+            </label>
+
+            <input
+              type="text"
+              class="form-control stm-control"
+              [(ngModel)]="payment.receiptNo"
+              name="receiptNo"
+              required>
+
+          </div>
+
+        <!--   <div class="col-md-3">
+
+            <label class="form-label">
+              Amount (₹)
+            </label>
+
+            <input
+              type="number"
+              min="1"
+              class="form-control stm-control"
+              [(ngModel)]="payment.amount"
+              name="amount"
+              required>
+
+          </div> -->
+
+          <div class="col-md-3">
+
+            <label class="form-label">
+              Amount (₹)
+            </label>
+
+            <input
+              type="number"
+              min="1"
+              class="form-control stm-control"
+              [(ngModel)]="payment.amount"
+              (ngModelChange)="updateAmountInWords()"
+              name="amount"
+              required>
+
+          </div>
+
+          <div class="col-md-3">
+
+            <label class="form-label">
+              Amount in Words
+            </label>
+
+            <input
+              type="text"
+              class="form-control stm-control"
+              [value]="amountInWords"
+              disabled>
+
+          </div>
+        <div class="col-md-3">
+
+            <label class="form-label">
+              Payment Mode
+            </label>
+
+            <select
+              class="form-select stm-control"
+              [(ngModel)]="payment.paymentMode"
+              name="paymentMode"
+              required>
+
+              <option value>
+                Select Payment Mode
+              </option>
+
+              <option value="Cash">
+                Cash
+              </option>
+
+              <option value="UPI">
+                UPI
+              </option>
+
+              <option value="Cheque">
+                Cheque
+              </option>
+
+              <option value="Bank Transfer">
+                Bank Transfer
+              </option>
+
+            </select>
+
+          </div>
+        </div>
+
+        <!-- ROW 2 -->
+
+        <div class="row g-4 mt-1">
+
+       
+
+        </div>
+
+        <!-- SAVE BUTTON -->
+
+        <div class="text-center mt-5">
+
+          <button
+            type="submit"
+            class="btn stm-save-btn px-5"
+            [disabled]="feePaymentForm.invalid">
+
+            Save Payment
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</form>

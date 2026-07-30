@@ -1,0 +1,400 @@
+<div id="app">
+
+    <nav
+        *ngIf="showNavbar"
+        class="navbar navbar-expand-lg stm-navbar shadow-lg">
+
+        <div class="container-fluid">
+
+            <!-- LOGO -->
+            <div class="d-flex align-items-center">
+
+                <div class="stm-logo">
+                    <img
+                        src="assets/img/stm_logo_img.jpg"
+                        alt="STM Logo"
+                        class="header-logo">
+                </div>
+
+                <div class="ms-3">
+
+                    <h3 class="stm-title mb-0">
+                        STM
+                    </h3>
+
+                    <small class="stm-subtitle">
+                        Student Management System
+                    </small>
+
+                </div>
+
+            </div>
+
+            <!-- MENU -->
+            <div
+                class="d-flex flex-wrap gap-2 align-items-center justify-content-end">
+
+                <!-- ANALYTICS -->
+                <div class="stm-dropdown" *ngIf="roleId == 1">
+
+                    <button
+                        type="button"
+                        class="btn stm-menu-btn"
+                        (click)="toggleMenu('analytics')">
+
+                        Analytics ▼
+
+                    </button>
+
+                    <div
+                        class="stm-dropdown-menu"
+                        *ngIf="openMenu === 'analytics'">
+
+                        <a
+                            routerLink="/analytics-dashboard"
+                            (click)="closeMenu()">
+
+                            Analytics
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- BALANCE SHEETS -->
+                <div class="stm-dropdown">
+
+                    <button
+                        type="button"
+                        class="btn stm-menu-btn"
+                        (click)="toggleMenu('balanceSheets')">
+
+                        Balance Sheets ▼
+
+                    </button>
+
+                    <div
+                        class="stm-dropdown-menu"
+                        *ngIf="openMenu === 'balanceSheets'">
+
+                        <a
+                            routerLink="/stm"
+                            (click)="closeMenu()">
+
+                            High School Balance Sheet
+
+                        </a>
+
+                        <a
+                            routerLink="/primary-student-balance"
+                            (click)="closeMenu()">
+
+                            Primary Balance Sheet
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- HIGH SCHOOL -->
+                <div class="stm-dropdown">
+
+                    <button
+                        type="button"
+                        class="btn stm-menu-btn"
+                        (click)="toggleMenu('highSchool')">
+
+                        High School ▼
+
+                    </button>
+
+                    <div
+                        class="stm-dropdown-menu"
+                        *ngIf="openMenu === 'highSchool'">
+
+                        <a
+                            routerLink="/add-student"
+                            (click)="closeMenu()">
+
+                            HS Add Student
+
+                        </a>
+
+                        <!-- <a
+                            routerLink="/fee-payment"
+                            (click)="closeMenu()">
+
+                            HS Fee Collection
+
+                        </a> -->
+                        <a
+                            routerLink="/marks-entry"
+                            (click)="closeMenu()">
+
+                            Marks Entry
+
+                        </a>
+                        <a
+                            routerLink="/add-teacher"
+                            (click)="closeMenu()">
+
+                            HS Add Teacher
+
+                        </a>
+
+                        <a
+                            routerLink="/teacher-attendance"
+                            (click)="closeMenu()">
+
+                            HS Teacher Attendance
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- PRIMARY SCHOOL -->
+                <div class="stm-dropdown">
+
+                    <button
+                        type="button"
+                        class="btn stm-menu-btn"
+                        (click)="toggleMenu('primarySchool')">
+
+                        Primary School ▼
+
+                    </button>
+
+                    <div
+                        class="stm-dropdown-menu"
+                        *ngIf="openMenu === 'primarySchool'">
+
+                        <a
+                            routerLink="/add-primary-student"
+                            (click)="closeMenu()">
+
+                            Primary Add Student
+
+                        </a>
+
+                       <!--  <a
+                            routerLink="/primary-fee-payment"
+                            (click)="closeMenu()">
+
+                            Primary Fee Collection
+
+                        </a> -->
+
+                        <a
+                            routerLink="/add-primary-teacher"
+                            (click)="closeMenu()">
+
+                            Primary Add Teacher
+
+                        </a>
+
+                        <a
+                            routerLink="/primary-teacher-attendance"
+                            (click)="closeMenu()">
+
+                            Primary Teacher Attendance
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- STUDENT DETAILS -->
+                <div class="stm-dropdown" *ngIf="roleId == 1">
+
+                    <button
+                        type="button"
+                        class="btn stm-menu-btn"
+                        (click)="toggleMenu('studentDetails')">
+
+                        Student Details ▼
+
+                    </button>
+
+                    <div
+                        class="stm-dropdown-menu"
+                        *ngIf="openMenu === 'studentDetails'">
+
+                        <a
+                            routerLink="/student-details"
+                            (click)="closeMenu()">
+
+                            High School Student Details
+
+                        </a>
+
+                        <a
+                            routerLink="/primary-student-details"
+                            (click)="closeMenu()">
+
+                            Primary Student Details
+
+                        </a>
+
+                    </div>
+
+                </div>
+<!-- FEE COLLECTION -->
+<div class="stm-dropdown">
+
+    <button
+        type="button"
+        class="btn stm-fee-btn"
+        (click)="toggleMenu('feeCollection')">
+
+        Fee Collection ▼
+
+    </button>
+
+    <div
+        class="stm-dropdown-menu"
+        *ngIf="openMenu === 'feeCollection'">
+
+        <a
+            routerLink="/fee-payment"
+            (click)="closeMenu()">
+
+            HS Fee Collection
+
+        </a>
+
+        <a
+            routerLink="/primary-fee-payment"
+            (click)="closeMenu()">
+
+            Primary Fee Collection
+
+        </a>
+
+    </div>
+
+</div>
+                <!-- SALARY PAYMENT -->
+                <div class="stm-dropdown" *ngIf="roleId == 1">
+
+                    <button
+                        type="button"
+                        class="btn stm-fee-btn"
+                        (click)="toggleMenu('salaryPayment')">
+
+                        Salary Payment ▼
+
+                    </button>
+
+                    <div
+                        class="stm-dropdown-menu"
+                        *ngIf="openMenu === 'salaryPayment'">
+
+                        <a
+                            routerLink="/teacher-salary"
+                            (click)="closeMenu()">
+
+                            High School Salary Payment
+
+                        </a>
+
+                        <a
+                            routerLink="/primary-teacher-salary"
+                            (click)="closeMenu()">
+
+                            Primary Salary Payment
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- LOGOUT -->
+                <!-- USER DROPDOWN -->
+                <div class="stm-dropdown">
+
+                    <button
+                        type="button"
+                        class="btn d-flex align-items-center px-3 py-2 rounded-pill bg-white shadow-sm"
+                        (click)="toggleMenu('userMenu')">
+
+                        <span style="font-size:18px; margin-right:8px;"></span>
+
+                        <span
+                            class="fw-bold"
+                            style="font-size:13px; color:#198754;">
+                            Profile
+                            {{ username }}
+
+                        </span>
+
+                        <span class="ms-2">▼</span>
+
+                    </button>
+
+                    <div
+                        class="stm-dropdown-menu"
+                        *ngIf="openMenu === 'userMenu'">
+
+                        <button
+                            type="button"
+                            class="dropdown-item"
+                            (click)="confirmLogout(); closeMenu()">
+
+                            Logout
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+    <router-outlet></router-outlet>
+
+    <!-- Change Password Modal -->
+    <div class="modal-overlay" *ngIf="showModal">
+        <div class="modal">
+            <h2>change_password</h2>
+            <form (ngSubmit)="changePassword()">
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword"
+                    [(ngModel)]="newPassword"
+                    name="newPassword" required>
+
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword"
+                    [(ngModel)]="confirmPassword" name="confirmPassword"
+                    required>
+
+                <!-- Error message -->
+                <div class="error-message" *ngIf="errorMessage">{{ errorMessage
+                    }}</div>
+
+                <div class="modal-buttons">
+                    <button type="button" (click)="closeModal()">Cancel</button>
+                    <button type="submit">Save & Logout</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" *ngIf="showSuccess">
+        <div class="modal">
+            <h2>Success</h2>
+            <p>{{ successMessage }}</p>
+            <button (click)="showSuccess = false">OK</button>
+        </div>
+    </div>
+
+</div>

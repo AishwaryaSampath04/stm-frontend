@@ -1,0 +1,200 @@
+<div class="container-fluid mt-4">
+
+  <div class="card stm-card shadow-lg border-0">
+
+    <div class="card-header stm-header">
+
+      <div class="d-flex align-items-center justify-content-between">
+
+        <div class="d-flex align-items-center">
+
+          <div class="header-line"></div>
+
+          <div class="ms-3">
+
+            <h5 class="mb-0 fw-semibold">
+              High School Student Balance Sheet
+            </h5>
+
+            <small>
+              Fee Collection Summary
+            </small>
+
+          </div>
+
+        </div>
+
+        <div class="d-flex gap-2">
+
+          <button
+            type="button"
+            class="btn stm-save-btn download-btn"
+            (click)="downloadBalanceSheetExcel()">
+
+            Download Balance Sheet
+            <span class="download-arrow">🡻</span>
+          </button>
+
+          <button
+            type="button"
+            class="btn stm-save-btn download-btn"
+            (click)="downloadPaymentHistoryExcel()">
+
+            Download Payment History
+            <span class="download-arrow">🡻</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="card-body">
+
+      <!-- Your table goes here -->
+
+      <div class="table-responsive">
+
+        <table class="table stm-table align-middle">
+
+          <thead>
+
+            <tr>
+              <th>Admission No</th>
+              <th>Student Name</th>
+              <th>Grade</th>
+              <th>Total Fee</th>
+              <th>Paid Amount</th>
+              <th>Balance</th>
+              <th>History</th>
+              <th>
+                Mobile No
+
+              </th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <ng-container *ngFor="let row of balanceList">
+
+              <!-- Main Row -->
+              <tr>
+
+                <td>{{ row.admission_no }}</td>
+
+                <td>{{ row.student_name }}</td>
+
+                <td>{{ row.grade_name }}</td>
+
+                <td>
+                  ₹ {{ row.final_fee }}
+                </td>
+
+                <td>
+                  ₹ {{ row.paid_amount }}
+                </td>
+
+                <td>
+
+                  <span class="badge stm-balance-badge">
+
+                    ₹ {{ row.balance_amount }}
+
+                  </span>
+
+                </td>
+
+                <td>
+
+                  <button
+                    class="btn btn-sm btn-outline-success"
+                    (click)="toggleHistory(row.student_id)">
+
+                    History ({{ row.payment_count }})
+
+                  </button>
+
+                </td>
+                <td>
+
+                  {{ row.mobile_no }}
+
+                  <br>
+
+                  <button
+                    *ngIf="expandedStudentId === row.student_id"
+                    class="btn btn-success btn-sm mt-2"
+                    (click)="sendWhatsApp(row)">
+
+                    <i class="fab fa-whatsapp"></i>
+                    Send Details
+                    <img src="assets/img/whatsapp.png"
+                      alt="whatsapp"
+                      style="width:30px; height:30px; vertical-align:middle; margin-left:5px;">
+                  </button>
+
+                </td>
+              </tr>
+
+              <!-- Accordion Row -->
+              <tr *ngIf="expandedStudentId === row.student_id">
+
+                <td colspan="7">
+
+                  <div class="p-3 bg-light">
+
+                    <h6 class="text-success mb-3">
+
+                      Payment History
+
+                    </h6>
+
+                    <table class="table table-sm table-bordered">
+
+                      <thead>
+
+                        <tr>
+                          <th>Payment Date</th>
+                          <th>Receipt No </th>
+                          <th>Payment Mode</th>
+                          <th>Amount</th>
+                        </tr>
+
+                      </thead>
+
+                      <tbody>
+
+                        <tr
+                          *ngFor="let p of paymentHistory[row.student_id]">
+
+                          <td>{{ p.payment_date }}</td>
+                          <td>{{ p.receipt_no }}</td>
+                          <td>{{ p.payment_mode }}</td>
+                          <td>₹ {{ p.amount_paid }}</td>
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+
+                  </div>
+
+                </td>
+
+              </tr>
+            </ng-container>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

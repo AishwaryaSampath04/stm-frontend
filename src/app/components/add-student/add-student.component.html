@@ -1,0 +1,215 @@
+<form #studentForm="ngForm">
+
+    <div class="container-fluid mt-4">
+
+        <div class="card stm-card shadow-lg border-0">
+
+            <div class="card-header stm-header">
+
+                <div class="d-flex align-items-center">
+
+                    <div class="header-line"></div>
+
+                    <div class="ms-3">
+
+                        <h5 class="mb-0 fw-semibold">
+                            High School Add Student
+                        </h5>
+
+                        <small>
+                            Add New Student
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="card-body">
+
+                <!-- Row 1 -->
+
+                <div class="row g-3">
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Admission No
+                        </label>
+
+                        <input
+                            class="form-control stm-control"
+                            [(ngModel)]="student.admissionNo"
+                            name="admissionNo"
+                            required>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Student Name
+                        </label>
+
+                        <input
+                            class="form-control stm-control"
+                            [(ngModel)]="student.studentName"
+                            name="studentName"
+                            required
+                             (input)="onNameInput($event)">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Parent Name
+                        </label>
+
+                        <input
+                            class="form-control stm-control"
+                            [(ngModel)]="student.parentName"
+                            name="parentName"
+                            required
+                             (input)="onNameInput($event)">
+
+                    </div>
+
+                </div>
+
+                <!-- Row 2 -->
+
+                <div class="row g-3 mt-2">
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Mobile No
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control stm-control"
+                            [(ngModel)]="student.mobileNo"
+                            name="mobileNo"
+                            required
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            (input)="onMobileInput($event)">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Grade
+                        </label>
+
+                        <select
+                            class="form-select stm-control"
+                            [(ngModel)]="student.gradeId"
+                            name="gradeId"
+                            required>
+
+                            <option value>
+                                Select Grade
+                            </option>
+
+                            <option
+                                *ngFor="let grade of grades"
+                                [value]="grade.grade_id">
+
+                                {{ grade.grade_name }}
+
+                            </option>
+
+                        </select>
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Annual Fee (₹)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control stm-control"
+                            [(ngModel)]="student.annualFee"
+                            name="annualFee"
+                            (input)="calculateFinalFee()">
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <label class="form-label">
+                            Discount (₹)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control stm-control"
+                            [(ngModel)]="student.discountAmount"
+                            name="discountAmount"
+                            (input)="calculateFinalFee()">
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <label class="form-label">
+                            Final Fee (₹)
+                        </label>
+
+                        <input
+                            type="number"
+                            class="form-control stm-control fee-readonly"
+                            [(ngModel)]="student.finalFee"
+                            name="finalFee"
+                            readonly>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <label class="form-label">
+
+                            Joining Date
+
+                        </label>
+
+                        <input
+                            type="date"
+                            class="form-control stm-control"
+                            [(ngModel)]="student.joiningDate"
+                            name="joiningDate"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- Save Button -->
+
+                <div class="text-center mt-5">
+
+                    <button
+                        class="btn stm-save-btn px-5"
+                        (click)="confirmAndSaveStudent()"
+                        [disabled]="studentForm.invalid">
+
+                        Save Student
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>

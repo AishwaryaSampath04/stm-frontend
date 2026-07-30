@@ -1,0 +1,892 @@
+<!-- ================= NAVBAR ================= -->
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark py-3">
+
+    <div class="container d-flex justify-content-between align-items-center">
+
+        <div class="d-flex align-items-center">
+            <div class="stm-logo">
+                <img
+                    src="assets/img/stm_logo_img.jpg"
+                    alt="STM Logo"
+                    style="height:45px;width:45px;border-radius:50%;">
+            </div>
+
+            <a class="navbar-brand fw-bold ms-2" href="#">
+                STM Academy
+            </a>
+        </div>
+
+        <!-- Navigation Menu Items - All as Buttons -->
+        <div class="d-none d-lg-flex align-items-center gap-2">
+            <button 
+                class="btn btn-outline-light btn-sm fw-semibold nav-menu-btn"
+                (click)="scrollToSection('achievers')"
+                style="font-size: 13px; padding: 6px 16px; border-radius: 20px; white-space: nowrap; transition: all 0.3s ease;">
+                Our Achievers
+            </button>
+            <button 
+                class="btn btn-outline-light btn-sm fw-semibold nav-menu-btn"
+                (click)="scrollToSection('testimonials')"
+                style="font-size: 13px; padding: 6px 16px; border-radius: 20px; white-space: nowrap; transition: all 0.3s ease;">
+                What Parents Say
+            </button>
+            <button 
+                class="btn btn-outline-light btn-sm fw-semibold nav-menu-btn"
+                (click)="scrollToSection('about')"
+                style="font-size: 13px; padding: 6px 16px; border-radius: 20px; white-space: nowrap; transition: all 0.3s ease;">
+                About Us
+            </button>
+            <button 
+                class="btn btn-outline-light btn-sm fw-semibold nav-menu-btn"
+                (click)="scrollToSection('contact')"
+                style="font-size: 13px; padding: 6px 16px; border-radius: 20px; white-space: nowrap; transition: all 0.3s ease;">
+                Contact Us
+            </button>
+
+              <button 
+                class="btn btn-outline-light btn-sm fw-semibold nav-menu-btn"
+                onclick="window.open('https://kseeb.karnataka.gov.in/QP2026/SSLC2025-26MODEL_QP', '_blank', 'noopener,noreferrer')"
+                style="font-size: 13px; padding: 6px 16px; border-radius: 20px; white-space: nowrap; transition: all 0.3s ease;">
+               Reference SSLC Papers
+            </button>
+            
+        </div>
+
+        <!-- Right side buttons -->
+     <div class="d-flex align-items-center gap-2">
+
+    <button
+        class="btn btn-success btn-sm px-3 d-inline-flex align-items-center justify-content-center"
+        routerLink="/login"
+        style="white-space: nowrap; font-size: 13px;">
+        <i class="fas fa-sign-in-alt me-1"></i>
+        Login
+    </button>
+
+</div>
+
+    </div>
+
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <!-- Left Content -->
+            <div class="col-lg-7 text-center text-lg-start">
+
+                <h1>
+                    Welcome to <br>
+                    <span class="text-warning">STM Academy</span>
+                </h1>
+                <button
+                    class="btn btn-warning btn-lg me-2 d-inline-flex align-items-center justify-content-center"
+                    (click)="showAdmissionForm = true">
+
+                    <i class="fas fa-user-plus me-2"></i>
+                    <span>Apply for Admission</span>
+
+                </button>
+               <!--  <button
+                    type="button"
+                    class="btn btn-warning btn-lg me-2 d-inline-flex align-items-center justify-content-center"
+                    onclick="window.open('https://kseeb.karnataka.gov.in/QP2026/SSLC2025-26MODEL_QP', '_blank')">
+                    SSLC Model and Previous Year Question Papers
+                </button> -->
+                <p class="mt-4">
+                    Specialized coaching for
+                    <strong>8<sup>th</sup>, 9<sup>th</sup> &amp; 10<sup>th</sup>
+                        Standard</strong>
+                    students of
+                    <strong>State Board</strong> and
+                    <strong>CBSE</strong>.
+
+                    We focus on concept-based learning,
+                    regular assessments, and board exam preparation
+                    to help every student achieve academic excellence.
+                </p>
+
+                <div class="mt-4">
+                    <span>
+                        <button
+                            class="btn btn-warning btn-lg d-inline-flex align-items-center fw-bold"
+                            onclick="window.open('https://www.google.com/maps/search/?api=1&query=Vidhana+Soudha,+Bengaluru', '_blank')">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            📍 Click to Find Us on Google Maps
+                        </button>
+                    </span>
+
+                    <div class="contact-bar mt-4 text-white"
+                        style="font-size:16px; font-weight:500;">
+
+                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
+
+                        <span class="mx-3 text-warning">|</span>
+
+                        <i class="fas fa-phone text-warning me-2"></i> +91 94811
+                        89415 | +91 80503 54626
+
+                        <span class="mx-3 text-warning">|</span>
+
+                        <i class="fas fa-envelope text-warning me-2"></i>
+                        info@stmacademy.com
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TOPPERS ================= -->
+
+<section id="achievers" class="bg-light py-5">
+
+    <div class="container">
+
+        <h2 class="text-center fw-bold mb-5">
+            Our Achievers
+        </h2>
+
+        <div class="row g-4">
+
+            <!-- Topper 1 -->
+            <div class="col-md-4">
+
+                <div class="topper-card card h-100 shadow-sm border-0">
+
+                    <img
+                        src="assets/img/topper1.jpg"
+                        class="card-img-top"
+                        alt="Rajneesh Kumar">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="fw-bold">
+                            Rajneesh Kumar
+                        </h5>
+
+                        <p class="text-muted mb-2">
+                            10th Standard • State Board
+                        </p>
+
+                        <h3 class="text-success fw-bold">
+                            98.40%
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Topper 2 -->
+            <div class="col-md-4">
+
+                <div class="topper-card card h-100 shadow-sm border-0">
+
+                    <img
+                        src="assets/img/topper2.jpg"
+                        class="card-img-top"
+                        alt="Tharani Priya">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="fw-bold">
+                            Tharani Priya
+                        </h5>
+
+                        <p class="text-muted mb-2">
+                            10th Standard • State Board
+                        </p>
+
+                        <h3 class="text-primary fw-bold">
+                            97.00%
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Topper 3 -->
+            <div class="col-md-4">
+
+                <div class="topper-card card h-100 shadow-sm border-0">
+
+                    <img
+                        src="assets/img/topper3.jpg"
+                        class="card-img-top"
+                        alt="Sunidhi Sharma">
+
+                    <div class="card-body text-center">
+
+                        <h5 class="fw-bold">
+                            Sunidhi Sharma
+                        </h5>
+
+                        <p class="text-muted mb-2">
+                            10th Standard • State Board
+                        </p>
+
+                        <h3 class="text-warning fw-bold">
+                            97.00%
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= HIGHLIGHTS ================= -->
+
+<section class="py-5 bg-white">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-3 mb-4">
+
+                <div class="feature-card p-4 h-100">
+
+                    <div class="icon mb-3">
+                        <img
+                            src="assets/img/board_teaching.png"
+                            class="card-img-top">
+                    </div>
+
+                    <h5>8th - 10th Standard</h5>
+
+                    <p class="text-muted">
+                        Coaching for State Board & CBSE students.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <div class="feature-card p-4 h-100">
+
+                    <div class="icon mb-3">
+                       <img
+                            src="assets/img/teaching.png"
+                            class="card-img-top">
+                    </div>
+
+                    <h5>Concept Learning</h5>
+
+                    <p class="text-muted">
+                        Strong fundamentals with experienced faculty.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <div class="feature-card p-4 h-100">
+
+                    <div class="icon mb-3">
+                       
+                        <img
+                            src="assets/img/test.png"
+                            class="card-img-top">
+                    </div>
+
+                    <h5>Regular Tests</h5>
+
+                    <p class="text-muted">
+                        Weekly assessments and progress tracking.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <div class="feature-card p-4 h-100">
+
+                    <div class="icon mb-3">
+                     <img
+                            src="assets/img/preperations.png"
+                            class="card-img-top">
+                    </div>
+
+                    <h5>Board Preparation</h5>
+
+                    <p class="text-muted">
+                        Focused coaching for excellent results.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+
+<section id="testimonials" class="py-5 bg-light">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                What Parents Say
+            </h2>
+
+            <p class="text-muted">
+                Hear from parents whose children achieved academic success with
+                STM Academy.
+            </p>
+
+        </div>
+
+        <!-- First 3 Reviews -->
+
+        <div class="row g-4">
+
+            <!-- Review 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+
+                    <div class="stars text-warning mb-3">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "My child could perform well in the final board exam
+                        because of the
+                        APEX Challenge Exams, 8 Phase Exams and Preparatory
+                        Exams.
+                        Thank you STM Academy."
+                    </p>
+
+                    <hr>
+
+                    <h6>Ramesh K.</h6>
+                    <small>Parent of 10th Standard Student</small>
+
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+
+                    <div class="stars text-warning mb-3">
+                        ★★★★☆
+                    </div>
+
+                    <p>
+                        "Special thanks to Sunitha Ma'am. She encouraged my
+                        daughter
+                        throughout the year and gave her confidence before
+                        exams."
+                    </p>
+
+                    <hr>
+                    <br>
+                    <h6>Lakshmi M.</h6>
+                    <small>Parent of 10th Standard Student</small>
+
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+
+                    <div class="stars text-warning mb-3">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "Weekly Phase Exams really helped my son improve.
+                        We are happy with his final results."
+                    </p>
+
+                    <hr>
+                    <br>
+                    <br>
+                    <h6>Manjunath S.</h6>
+                    <small>Parent of 9th Standard Student</small>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Remaining Reviews -->
+
+        <div class="row g-4 mt-2" *ngIf="showMoreReviews">
+
+            <!-- Review 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="stars text-warning mb-3">★★★★★</div>
+                    <p>"Thanks to Vidhya Ma'am for giving personal attention. My child enjoys Mathematics now."</p>
+                    <hr>
+                    <h6>Shobha R.</h6>
+                    <small>Parent of 8th Standard Student</small>
+                </div>
+            </div>
+
+            <!-- Review 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="stars text-warning mb-3">★★★★☆</div>
+                    <p>"Preparatory exams made the board exam much easier for my daughter. Very thankful."</p>
+                    <hr>
+                    <h6>Prakash N.</h6>
+                    <small>Parent of 10th Standard Student</small>
+                </div>
+            </div>
+
+            <!-- Review 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="stars text-warning mb-3">★★★★★</div>
+                    <p>"The teachers always updated us about our son's progress. Excellent guidance."</p>
+                    <hr>
+                    <h6>Geetha P.</h6>
+                    <small>Parent of 9th Standard Student</small>
+                </div>
+            </div>
+
+            <!-- Review 7 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="stars text-warning mb-3">★★★★☆</div>
+                    <p>"Sunitha Ma'am was always patient and supportive. My daughter scored beyond our expectations."</p>
+                    <hr>
+                    <h6>Anitha V.</h6>
+                    <small>Parent of 10th Standard Student</small>
+                </div>
+            </div>
+
+            <!-- Review 8 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="stars text-warning mb-3">★★★★★</div>
+                    <p>"APEX Challenge Exams gave my child enough practice before boards. Very useful."</p>
+                    <hr>
+                    <h6>Kiran H.</h6>
+                    <small>Parent of 10th Standard Student</small>
+                </div>
+            </div>
+
+            <!-- Review 9 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="stars text-warning mb-3">★★★★★</div>
+                    <p>"Thank you Vidhya Ma'am and the STM Academy team. We are very happy with our child's improvement."</p>
+                    <hr>
+                    <h6>Savitha B.</h6>
+                    <small>Parent of 10th Standard Student</small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5">
+
+            <button
+                class="btn btn-success px-4 py-2"
+                (click)="toggleReviews()">
+
+                {{ showMoreReviews ? 'Show Less ▲' : 'View More Reviews ▼' }}
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+<div class="container">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold mb-3" style="color:#163B65;">
+            About STM Academy
+        </h2>
+
+        <div class="card border-0 shadow-lg rounded-4 mx-auto" style="max-width:950px; border-top:6px solid #198754;">
+
+            <div class="card-body p-5 text-start">
+
+                <h4 class="fw-bold mb-3" style="color:#163B65;">
+                    25+ Years of Academic Excellence
+                </h4>
+
+                <p class="text-muted" style="line-height:1.9; font-size:17px;">
+                    <strong>STM Academy</strong> has been shaping academic excellence for over
+                    <strong>25 years</strong>, providing result-oriented coaching for students of
+                    <strong>8th, 9th, and 10th Standard</strong> under both the
+                    <strong>Karnataka State Board</strong> and
+                    <strong>CBSE</strong> curriculum.
+                </p>
+
+                <p class="text-muted" style="line-height:1.9; font-size:17px;">
+                    Our experienced <strong>Board Subject Experts</strong> focus on concept-based learning,
+                    problem-solving skills, and systematic preparation to help students perform with
+                    confidence in both school and board examinations.
+                </p>
+
+                <hr class="my-4">
+
+                <h5 class="fw-bold mb-3" style="color:#198754;">
+                    Our Academic Approach
+                </h5>
+
+                <p class="text-muted" style="line-height:1.9; font-size:17px;">
+                    We follow a structured academic methodology that includes
+                    <strong>APEX Challenges</strong>,
+                    <strong>Phase Examinations</strong>,
+                    regular assessments, comprehensive revision sessions, and continuous performance
+                    tracking. Every student receives individual attention, detailed feedback, and
+                    personalized guidance to strengthen their learning and boost their confidence.
+                </p>
+
+                <hr class="my-4">
+
+                <h5 class="fw-bold mb-3" style="color:#198754;">
+                    Our Commitment
+                </h5>
+
+                <p class="text-muted mb-0" style="line-height:1.9; font-size:17px;">
+                    With a proud legacy of producing <strong>highest achievers</strong> year after year,
+                    STM Academy is committed to nurturing discipline, academic excellence, and a passion
+                    for learning. Our mission is not only to help students score outstanding marks but
+                    also to build strong foundations, confidence, and the skills needed for lifelong success.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <h2 class="text-center mb-5">
+
+            Contact STM Academy
+
+        </h2>
+
+        <div class="row">
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="contact-box text-center">
+
+                    <div class="contact-icon">
+
+                        <img
+                            src="assets/img/location.png"
+                            class="card-img-top">
+
+                    </div>
+
+                    <h5>Address</h5>
+
+                    <p>
+
+                        #123, Academy Road<br>
+
+                        Bengaluru - 560001
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="contact-box text-center">
+
+                    <div class="contact-icon">
+
+                        <img
+                            src="assets/img/phone.png"
+                            class="card-img-top">
+
+                    </div>
+
+                    <h5>Phone</h5>
+
+                    <p>
+
+                        +91 94811 89415<br>
+
+                        +91 80503 54626
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="contact-box text-center">
+
+                    <div class="contact-icon">
+
+                        <img
+                            src="assets/img/mail.png"
+                            class="card-img-top">
+
+                    </div>
+
+                    <h5>Email</h5>
+
+                    <p>
+
+                        info@stmacademy.com<br>
+
+                        info@stmacademy.com
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container">
+
+        <h4 class="mb-2">
+
+            STM Academy
+
+        </h4>
+
+        <p>
+
+            Quality Coaching for 8th, 9th & 10th Standard
+
+            <br>
+
+            State Board | CBSE
+
+        </p>
+
+        <small>
+
+            © 2026 STM Academy. All Rights Reserved.
+
+        </small>
+
+    </div>
+
+    <!-- ================= Admission Form ================= -->
+
+    <div
+        *ngIf="showAdmissionForm"
+        style="
+        position: fixed;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        background:rgba(0,0,0,.6);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        z-index:9999;">
+
+        <div class="card shadow-lg"
+            style="width:650px;max-width:95%;border-radius:15px;">
+
+            <div
+                class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+
+                <h4 class="mb-0">
+                    Admission Enquiry
+                </h4>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    (click)="showAdmissionForm=false">
+                </button>
+
+            </div>
+
+            <div class="card-body bg-white">
+
+                <form (ngSubmit)="apply()">
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Student Name"
+                                [(ngModel)]="studentName"
+                                name="studentName"
+                                required>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Parent Name"
+                                [(ngModel)]="parentName"
+                                name="parentName"
+                                required>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <input
+                                type="tel"
+                                class="form-control"
+                                placeholder="Contact Number"
+                                [(ngModel)]="contactNo"
+                                name="contactNo"
+                                maxlength="10"
+                                required>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <select
+                                class="form-control"
+                                [(ngModel)]="grade"
+                                name="grade"
+                                required>
+
+                                <option value>
+                                    Select Grade
+                                </option>
+
+                                <option value="8th Standard">8th
+                                    Standard</option>
+                                <option value="9th Standard">9th
+                                    Standard</option>
+                                <option value="10th Standard">10th
+                                    Standard</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                placeholder="Previous Year Percentage"
+                                [(ngModel)]="percentage"
+                                name="percentage">
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Current School"
+                                [(ngModel)]="school"
+                                name="school">
+
+                        </div>
+
+                    </div>
+
+                    <div class="text-end mt-3">
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary me-2"
+                            (click)="showAdmissionForm=false">
+
+                            Cancel
+
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btn btn-success">
+
+                            <i class="fab fa-whatsapp me-2"></i>
+
+                            Submit via WhatsApp
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</footer>

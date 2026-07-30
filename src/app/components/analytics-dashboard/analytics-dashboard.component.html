@@ -1,0 +1,244 @@
+<!-- HIGH SCHOOL CHARTS -->
+
+<div class="row">
+
+    <div class="col-lg-6 mb-4">
+
+        <div class="card chart-card h-100">
+
+            <div class="card-header bg-white">
+
+                <h6 class="mb-0">
+                    Fee Collection Overview
+                </h6>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-6">
+
+                        <canvas id="feePieChart"></canvas>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Total Collection
+                            </div>
+
+                            <div class="summary-value text-success">
+                                ₹ {{ summary.totalCollection | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Pending Collection
+                            </div>
+
+                            <div class="summary-value text-warning">
+                                ₹ {{ summary.pendingCollection | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Total Revenue
+                            </div>
+
+                            <div class="summary-value text-primary">
+                                ₹ {{ summary.totalRevenue | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Salary Paid
+                            </div>
+
+                            <div class="summary-value text-danger">
+                                ₹ {{ summary.totalSalaryPaid | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Net Profit
+                            </div>
+
+                            <div class="summary-value text-success fw-bold">
+                                ₹ {{ summary.netProfit | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6 mb-4">
+
+        <div class="card chart-card h-100">
+
+            <div class="card-header bg-white">
+
+                <h6 class="mb-0">
+                    Revenue vs Salary vs Profit
+                </h6>
+
+            </div>
+
+            <div class="card-body">
+
+                <canvas id="financeChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PRIMARY CHARTS -->
+
+<div class="row mt-4">
+
+    <div class="col-lg-6 mb-4">
+
+        <div class="card chart-card h-100">
+
+            <div class="card-header bg-white">
+
+                <h6 class="mb-0">
+                    Primary Fee Collection Overview
+                </h6>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="row align-items-center">
+
+                    <div class="col-md-6">
+
+                        <canvas id="primaryFeePieChart"></canvas>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Total Collection
+                            </div>
+
+                            <div class="summary-value text-success">
+                                ₹ {{ primarySummary.totalCollection | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Pending Collection
+                            </div>
+
+                            <div class="summary-value text-warning">
+                                ₹ {{ primarySummary.pendingCollection | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Total Revenue
+                            </div>
+
+                            <div class="summary-value text-primary">
+                                ₹ {{ primarySummary.totalRevenue | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Salary Paid
+                            </div>
+
+                            <div class="summary-value text-danger">
+                                ₹ {{ primarySummary.totalSalaryPaid | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="summary-title">
+                                Net Profit
+                            </div>
+
+                            <div class="summary-value text-success fw-bold">
+                                ₹ {{ primarySummary.netProfit | number:'1.0-0' }}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6 mb-4">
+
+        <div class="card chart-card h-100">
+
+            <div class="card-header bg-white">
+
+                <h6 class="mb-0">
+                    Primary Revenue vs Salary vs Profit
+                </h6>
+
+            </div>
+
+            <div class="card-body">
+
+                <canvas id="primaryFinanceChart"></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

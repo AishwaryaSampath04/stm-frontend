@@ -1,0 +1,147 @@
+<div class="container-fluid mt-4">
+
+  <div class="card stm-card shadow-lg border-0">
+
+    <div class="card-header stm-header">
+
+      <div class="d-flex align-items-center">
+
+        <div class="header-line"></div>
+
+        <div class="ms-3">
+
+          <h5 class="mb-0 fw-semibold">
+            Add Primary Student
+          </h5>
+
+          <small>
+            Add New Primary Student
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="card-body">
+
+      <div class="row g-4">
+
+        <div class="col-md-4">
+          <label class="form-label">Admission No</label>
+
+          <input
+            type="text"
+            class="form-control stm-control"
+            [(ngModel)]="student.admissionNo"
+            name="admissionNo"
+            required>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Student Name</label>
+
+          <input
+            type="text"
+            class="form-control stm-control"
+            [(ngModel)]="student.studentName"
+            name="studentName"
+            required
+            (input)="onNameInput($event)">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Grade</label>
+
+          <select
+            class="form-select stm-control"
+            [(ngModel)]="student.gradeId"
+            name="gradeId"
+            required>
+
+            <option value="">
+              Select Grade
+            </option>
+
+            <option
+              *ngFor="let grade of grades"
+              [value]="grade.grade_id">
+
+              {{ grade.grade_name }}
+
+            </option>
+
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Parent Name</label>
+
+          <input
+            type="text"
+            class="form-control stm-control"
+            [(ngModel)]="student.parentName"
+            name="parentName"
+            required
+            (input)="onNameInput($event)">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Mobile No</label>
+
+          <input
+            type="text"
+            class="form-control stm-control"
+            [(ngModel)]="student.mobileNo"
+            name="mobileNo"
+            maxlength="10"
+            pattern="[0-9]{10}"
+            required
+            (input)="onMobileInput($event)">
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Monthly (₹)</label>
+
+          <input
+            type="number"
+            class="form-control stm-control"
+            [(ngModel)]="student.monthlyFee"
+            name="monthlyFee"
+            min="1"
+            required>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Joining Date</label>
+
+          <input
+            type="date"
+            class="form-control stm-control"
+            [(ngModel)]="student.joiningDate"
+            name="joiningDate"
+            required>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-5">
+
+        <button
+          type="button"
+          class="btn stm-save-btn"
+          [disabled]="!isStudentFormValid()"
+          (click)="confirmAndSaveStudent()">
+
+          Save Student
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

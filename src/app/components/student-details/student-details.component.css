@@ -1,0 +1,227 @@
+.stm-table {
+    margin-bottom: 0;
+}
+
+.stm-table thead {
+    background: #f8f9fa;
+}
+
+.stm-table thead th {
+    color: #146c43;
+    font-weight: 700;
+    border-bottom: 2px solid #198754;
+    padding: 13px;
+    font-size: 13px;
+}
+
+.stm-table tbody td {
+    padding: 13px;
+    vertical-align: middle;
+}
+
+.stm-table tbody tr:hover {
+    background: #f8fff9;
+}
+
+.table-responsive {
+    border-radius: 10px;
+}
+
+.stm-card {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.stm-header {
+    background: linear-gradient(
+        90deg,
+        #0f5132 0%,
+        #146c43 100%
+    );
+    color: white;
+    padding: 10px 18px;
+    border-bottom: 3px solid #ffc107;
+}
+
+.header-line {
+    width: 5px;
+    height: 35px;
+    background: #ffc107;
+    border-radius: 4px;
+}
+
+.stm-header h5 {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.stm-header small {
+    color: #d8f3dc;
+    font-size: 11px;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.stm-control {
+    height: 52px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.stm-control:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 .15rem rgba(25,135,84,.25);
+}
+
+.fee-readonly {
+    background: #eef8f2;
+    font-weight: 700;
+    color: #146c43;
+}
+
+.stm-save-btn {
+    background: #ffc107;
+    color: #000;
+    font-weight: 700;
+    border: none;
+    min-width: 220px;
+    height: 52px;
+    border-radius: 10px;
+}
+
+.stm-save-btn:hover {
+    background: #ffca2c;
+}
+
+.stm-edit-btn {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 8px;
+
+    padding: 0;
+
+    color: #fff;
+
+    background: #ffc107;
+
+    border: none;
+
+}
+
+.stm-edit-btn:hover {
+
+    background: #ffca2c;
+
+    transform: scale(1.05);
+
+}
+
+.stm-modal {
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+}
+
+
+.stm-popup-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.45);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+}
+
+.stm-popup {
+
+    width: 92%;
+
+    max-width: 1100px;
+
+    background: #fff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+
+    animation: popupShow .25s ease;
+
+}
+
+.stm-close-btn {
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+}
+
+.stm-close-btn:hover {
+
+    color: #ffc107;
+
+}
+
+@keyframes popupShow {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(.95);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+.swal2-container {
+    z-index: 999999 !important;
+}
+
+
+.stm-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.stm-popup {
+    z-index: 1051;
+}   
