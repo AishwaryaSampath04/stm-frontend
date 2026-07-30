@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class StmService {
 
-  private apiUrl = 'http://localhost:8080/api/stm';
+  private apiUrl = 'https://spuracademy.onrender.com/api/stm';
 
   constructor(private http: HttpClient) { }
 

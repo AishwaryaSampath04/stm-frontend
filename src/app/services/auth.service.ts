@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from '../services/token-storage.service';
-const AUTH_API = 'http://localhost:8080/api/auth/';
+const AUTH_API = 'https://spuracademy.onrender.com/api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -35,7 +35,7 @@ export class AuthService {
   }
 
 /* updatePassword(data: any) {
-  return this.http.put(`http://localhost:8080/api/auth/${data.id}`, data);
+  return this.http.put(`https://spuracademy.onrender.com/api/auth/${data.id}`, data);
 } */
 
 /* updatePassword(data: { id: number, password: string }) {
@@ -43,7 +43,7 @@ export class AuthService {
 } */
 
 /* updatePassword(data: { id: number, password: string }): Observable<any> {
-  return this.http.put(`http://localhost:8080/api/auth/${data.id}`, data);
+  return this.http.put(`https://spuracademy.onrender.com/api/auth/${data.id}`, data);
 }
  */
 

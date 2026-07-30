@@ -5,7 +5,7 @@ import { HttpParams } from '@angular/common/http';
 
 
 import { Observable } from 'rxjs';
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'https://spuracademy.onrender.com/api';
 
 
 
@@ -17,7 +17,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
-  private uploadUrl = 'http://localhost:8080/api/todos/upload';
+  private uploadUrl = 'https://spuracademy.onrender.com/api/todos/upload';
 
   constructor(private http: HttpClient) { }
   getItems(): Observable<any> {

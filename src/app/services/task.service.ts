@@ -8,7 +8,7 @@ export interface UploadedFile {
   filePath: string;
 }
 
-const API_URL = 'http://localhost:8080/api/files';
+const API_URL = 'https://spuracademy.onrender.com/api/files';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
