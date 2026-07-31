@@ -5,17 +5,16 @@
     <!-- LEFT SECTION -->
     <div class="hero-section">
 
- <div class="logo-header">
+      <div class="logo-header">
 
-  <div class="stm-logo">
-    <img
-      src="assets/img/spur_logo_img.jpeg"
-      alt="STM Logo"
-      class="header-logo">
-  </div>
+        <div class="stm-logo">
+          <img
+            src="assets/img/spur_logo_img.jpeg"
+            alt="STM Logo"
+            class="header-logo">
+        </div>
 
-
-</div>
+      </div>
 
       <h1>SPUR ACADEMY </h1>
 
@@ -23,16 +22,16 @@
 
       <p>
         Providing quality education with experienced faculty,
-        
+
         individual attention and excellent academic results.
       </p>
 
- <button
-    class="btn btn-success btn-lg home-btn"
-    routerLink="/home">
-    <i class="fas fa-home me-10"></i>
-   Go Back to Home Page
- </button>
+      <button
+        class="btn btn-success btn-lg home-btn"
+        routerLink="/home">
+        <i class="fas fa-home me-10"></i>
+        Go Back to Home Page
+      </button>
       <div class="achievement-container">
 
         <div class="achievement-card">
@@ -92,137 +91,136 @@
 
               <div class="header-text">
 
-                <h2>Welcome Back</h2>
-
+                <h2>SPUR ACADEMY</h2>
                 <p>Academic Management Portal</p>
+                <p>Welcome Back <p>
+
+                  </div>
+
+                </div>
 
               </div>
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-            </div>
+                <!-- Username -->
+                <div class="custom-field">
+                  <mat-icon>person</mat-icon>
 
-          </div>
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    formControlName="username">
 
-            <!-- Username -->
-            <div class="custom-field">
-              <mat-icon>person</mat-icon>
+                </div>
 
-              <input
-                type="text"
-                placeholder="Username"
-                formControlName="username">
-
-            </div>
-
-            <small
-              class="error"
-              *ngIf="loginForm.get('username')?.touched &&
+                <small
+                  class="error"
+                  *ngIf="loginForm.get('username')?.touched &&
                    loginForm.get('username')?.hasError('required')">
 
-              Username is required
+                  Username is required
 
-            </small>
+                </small>
 
-            <!-- Password -->
+                <!-- Password -->
 
-            <div class="custom-field">
+                <div class="custom-field">
 
-              <mat-icon>lock</mat-icon>
+                  <mat-icon>lock</mat-icon>
 
-              <input
-                [type]="hide ? 'password' : 'text'"
-                placeholder="Password"
-                formControlName="password">
+                  <input
+                    [type]="hide ? 'password' : 'text'"
+                    placeholder="Password"
+                    formControlName="password">
 
-              <mat-icon
-                class="eye"
-                (click)="hide=!hide">
+                  <mat-icon
+                    class="eye"
+                    (click)="hide=!hide">
 
-                {{hide ? 'visibility_off' : 'visibility'}}
+                    {{hide ? 'visibility_off' : 'visibility'}}
 
-              </mat-icon>
+                  </mat-icon>
 
-            </div>
+                </div>
 
-            <small
-              class="error"
-              *ngIf="loginForm.get('password')?.touched &&
+                <small
+                  class="error"
+                  *ngIf="loginForm.get('password')?.touched &&
                    loginForm.get('password')?.hasError('required')">
 
-              Password is required
+                  Password is required
 
-            </small>
+                </small>
 
-            <!-- Captcha -->
+                <!-- Captcha -->
 
-            <div class="captcha-wrapper">
+                <div class="captcha-wrapper">
 
-              <div class="captcha-distorted">
+                  <div class="captcha-distorted">
 
-                <span
-                  *ngFor="let c of captchaArray; let i=index"
-                  [style.transform]="randomTransforms[i]"
-                  [style.color]="randomColors[i]">
+                    <span
+                      *ngFor="let c of captchaArray; let i=index"
+                      [style.transform]="randomTransforms[i]"
+                      [style.color]="randomColors[i]">
 
-                  {{c}}
+                      {{c}}
 
-                </span>
-                <button
-                  mat-icon-button
-                  type="button"
-                  (click)="generateCaptcha()">
+                    </span>
+                    <button
+                      mat-icon-button
+                      type="button"
+                      (click)="generateCaptcha()">
 
-                  <mat-icon>refresh</mat-icon>
+                      <mat-icon>refresh</mat-icon>
 
-                </button>
-              </div>
+                    </button>
+                  </div>
 
-            </div>
+                </div>
 
-            <!-- Captcha Input -->
+                <!-- Captcha Input -->
 
-            <div class="custom-field">
+                <div class="custom-field">
 
-              <mat-icon>verified_user</mat-icon>
+                  <mat-icon>verified_user</mat-icon>
 
-              <input
-                type="text"
-                placeholder="Captcha"
-                formControlName="captcha">
+                  <input
+                    type="text"
+                    placeholder="Captcha"
+                    formControlName="captcha">
 
-            </div>
+                </div>
 
-            <small
-              class="error"
-              *ngIf="loginForm.get('captcha')?.touched &&
+                <small
+                  class="error"
+                  *ngIf="loginForm.get('captcha')?.touched &&
                    loginForm.get('captcha')?.hasError('required')">
 
-              Captcha is required
+                  Captcha is required
 
-            </small>
+                </small>
 
-            <button
-              class="login-btn"
-              type="submit">
+                <button
+                  class="login-btn"
+                  type="submit">
 
-              LOGIN
+                  LOGIN
 
-            </button>
+                </button>
 
-            <div class="register-link">
+                <div class="register-link">
 
-             <!--  <span>New to STM?</span> -->
+                  <!--  <span>New to STM?</span> -->
 
-             <!--  <a routerLink="/register">
+                  <!--  <a routerLink="/register">
                 Create Account
               </a> -->
 
-            </div>
+                </div>
 
-          </form>
+              </form>
+
+            </div>
+          </div>
 
         </div>
-      </div>
-
-    </div>
-   

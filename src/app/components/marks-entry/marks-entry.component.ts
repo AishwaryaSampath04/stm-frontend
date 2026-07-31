@@ -467,7 +467,7 @@ export class MarksEntryComponent implements OnInit {
 
     doc.text(
 
-      'STUDENT MANAGEMENT SYSTEM',
+      'SPUR ACADEMY',
 
       148,
 

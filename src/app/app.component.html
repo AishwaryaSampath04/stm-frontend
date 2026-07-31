@@ -17,7 +17,6 @@
                 </div>
 
                 <div class="ms-3">
-
                     <h3 class="stm-title mb-0">
                         SPUR ACADEMY
                     </h3>
@@ -25,7 +24,6 @@
                     <small class="stm-subtitle">
                         Student Management System
                     </small>
-
                 </div>
 
             </div>
@@ -180,7 +178,7 @@
 
                         </a>
 
-                       <!--  <a
+                        <!--  <a
                             routerLink="/primary-fee-payment"
                             (click)="closeMenu()">
 
@@ -243,41 +241,41 @@
                     </div>
 
                 </div>
-<!-- FEE COLLECTION -->
-<div class="stm-dropdown">
+                <!-- FEE COLLECTION -->
+                <div class="stm-dropdown">
 
-    <button
-        type="button"
-        class="btn stm-fee-btn"
-        (click)="toggleMenu('feeCollection')">
+                    <button
+                        type="button"
+                        class="btn stm-fee-btn"
+                        (click)="toggleMenu('feeCollection')">
 
-        Fee Collection ▼
+                        Fee Collection ▼
 
-    </button>
+                    </button>
 
-    <div
-        class="stm-dropdown-menu"
-        *ngIf="openMenu === 'feeCollection'">
+                    <div
+                        class="stm-dropdown-menu"
+                        *ngIf="openMenu === 'feeCollection'">
 
-        <a
-            routerLink="/fee-payment"
-            (click)="closeMenu()">
+                        <a
+                            routerLink="/fee-payment"
+                            (click)="closeMenu()">
 
-            HS Fee Collection
+                            HS Fee Collection
 
-        </a>
+                        </a>
 
-        <a
-            routerLink="/primary-fee-payment"
-            (click)="closeMenu()">
+                        <a
+                            routerLink="/primary-fee-payment"
+                            (click)="closeMenu()">
 
-            Primary Fee Collection
+                            Primary Fee Collection
 
-        </a>
+                        </a>
 
-    </div>
+                    </div>
 
-</div>
+                </div>
                 <!-- SALARY PAYMENT -->
                 <div class="stm-dropdown" *ngIf="roleId == 1">
 

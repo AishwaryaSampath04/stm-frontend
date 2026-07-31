@@ -223,5 +223,6 @@ onSubmit(): void {
       this.loginForm.patchValue({ captcha: '' });
     }
   );
+  }
 }
-}
+

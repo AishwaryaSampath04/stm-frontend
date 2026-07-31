@@ -27,7 +27,36 @@
     padding:10px 28px;
     font-weight:600;
 }
+/* ================= NAVBAR MENU BUTTONS ================= */
 
+.nav-menu-btn {
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+/* Hover + Selected (Clicked) */
+.nav-menu-btn:hover,
+.nav-menu-btn:focus,
+.nav-menu-btn:active,
+.nav-menu-btn.active,
+.nav-menu-btn:focus-visible,
+.btn-outline-light:not(:disabled):not(.disabled):active {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    color: #061e3d !important;
+    box-shadow: none !important;
+}
+
+/* Prevent Bootstrap from changing the color after click */
+.nav-menu-btn:focus:not(:hover),
+.nav-menu-btn:active:not(:hover) {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    color: #061e3d !important;
+}
 /* ================= HERO ================= */
 
 .hero-section{
@@ -103,13 +132,13 @@ section{
     border:none;
     border-radius:22px;
     background:#fff;
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    box-shadow:0 15px 40px rgba(250, 249, 249, 0.08);
     transition:.35s;
 }
 
 .feature-card:hover{
     transform:translateY(-8px);
-    box-shadow:0 25px 55px rgba(0,0,0,.12);
+    box-shadow:0 25px 55px rgba(245, 243, 243, 0.12);
 }
 
 .feature-card .icon{
