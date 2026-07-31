@@ -40,7 +40,7 @@
     background:
         linear-gradient(rgba(6,30,61,.78),
         rgba(6,30,61,.70)),
-        url("/assets/img/stm_bg_img.jpg")
+        url("/assets/img/stm_bg_img.jpeg")
         center center/cover no-repeat;
 }
 
