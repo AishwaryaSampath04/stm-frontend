@@ -259,7 +259,7 @@ sendWhatsApp(row: any) {
   const history = this.paymentHistory[row.student_id] || [];
 
   let message =
-`🏫 *STM ACADEMY*
+`🏫 *SPUR ACADEMY*
 
 Dear Parent,
 
@@ -328,11 +328,11 @@ message +=
 
 Kindly pay the above balance amount at the earliest to avoid any inconvenience.
 
-For any clarification, please contact the STM Academy office.
+For any clarification, please contact the SPUR ACADEMY office.
 
 Thank You.
 
-🏫 *STM ACADEMY*`;
+🏫 *SPUR ACADEMY*`;
 
   Swal.fire({
 
